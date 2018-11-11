@@ -19,7 +19,7 @@ public class Configuration {
         VisitorCreator creator = new SavingResultFilesVisitorCreator();
         SavingResultVisitor visitor = creator.getVisitor(args);
         runTasks(args, visitor);
-        saveFoundFilesTask(visitor.getDocuments());
+        saveFoundFilesTask(visitor.getResultDocuments());
     }
 
     private static void runTasks(String[] myArgs, SavingResultVisitor visitor) {

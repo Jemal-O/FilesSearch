@@ -7,7 +7,7 @@ import java.util.regex.Pattern;
 
 public class DirectoriesExclusionStrategy implements ExclusionStrategy {
 
-    private static final Pattern PATTERN = Pattern.compile("((\\\\\\\\)|([A-Z]:))([a-z]|[A-Z]|\\\\|[0-9]|\\s|\\.|)+");
+    private static final Pattern PATTERN = Pattern.compile("((\\\\\\\\)|([A-Z]:))([a-z]|[A-Z]|\\\\|[0-9]|\\s|\\.|_)+");
     private final List<String> exclusions = new ArrayList<>();
 
     @Override
@@ -20,6 +20,11 @@ public class DirectoriesExclusionStrategy implements ExclusionStrategy {
 
     @Override
     public boolean exclude(String file) {
-        return exclusions.contains(file);
+        for (String exclusion : exclusions) {
+            if (file.startsWith(exclusion)) {
+                return true;
+            }
+        }
+        return false;
     }
 }

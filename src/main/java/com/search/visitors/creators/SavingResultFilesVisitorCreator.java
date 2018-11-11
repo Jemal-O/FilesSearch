@@ -4,7 +4,6 @@ import com.search.exclusionstrategies.DirectoriesExclusionStrategy;
 import com.search.exclusionstrategies.ExclusionStrategy;
 import com.search.visitors.SavingResultFilesVisitor;
 import com.search.visitors.SavingResultVisitor;
-import com.search.visitors.creators.VisitorCreator;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -17,11 +16,17 @@ public class SavingResultFilesVisitorCreator implements VisitorCreator {
         put("-", new DirectoriesExclusionStrategy());
     }};
 
-    private static List<ExclusionStrategy> defineExclusionStrategies(String... args) {
+    @Override
+    public SavingResultVisitor getVisitor(String... args) {
+        List<ExclusionStrategy> exclusionStrategies = defineExclusionStrategies(args);
+        return new SavingResultFilesVisitor(exclusionStrategies);
+    }
+
+    private List<ExclusionStrategy> defineExclusionStrategies(String... args) {
         List<ExclusionStrategy> applicableStrategies = new ArrayList<>();
         for (String key : EXCLUSION_STRATEGIES.keySet()) {
             for (int i = 1; i < args.length; i++) {
-                if (args[i].startsWith(key)) {
+                if (args[i] != null && args[i].startsWith(key)) {
                     ExclusionStrategy strategy = EXCLUSION_STRATEGIES.get(key);
                     strategy.fillExclusions(args[i]);
                     applicableStrategies.add(strategy);
@@ -29,12 +34,6 @@ public class SavingResultFilesVisitorCreator implements VisitorCreator {
             }
         }
         return applicableStrategies;
-    }
-
-    @Override
-    public SavingResultVisitor getVisitor(String... args) {
-        List<ExclusionStrategy> exclusionStrategies = defineExclusionStrategies(args);
-        return new SavingResultFilesVisitor(exclusionStrategies);
     }
 
 }

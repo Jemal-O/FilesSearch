@@ -8,5 +8,5 @@ import java.util.Set;
 
 public abstract class SavingResultVisitor extends SimpleFileVisitor<Path> {
 
-    public abstract Set<Document> getDocuments();
+    public abstract Set<Document> getResultDocuments();
 }
