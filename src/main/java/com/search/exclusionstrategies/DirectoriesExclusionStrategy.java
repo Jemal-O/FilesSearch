@@ -1,4 +1,4 @@
-package exclusionstrategies;
+package com.search.exclusionstrategies;
 
 import java.util.ArrayList;
 import java.util.List;

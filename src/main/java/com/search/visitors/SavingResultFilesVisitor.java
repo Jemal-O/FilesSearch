@@ -1,23 +1,26 @@
-import exclusionstrategies.ExclusionStrategy;
+package com.search.visitors;
+
+import com.search.Document;
+import com.search.exclusionstrategies.ExclusionStrategy;
+import com.search.visitors.SavingResultVisitor;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.SimpleFileVisitor;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 import java.util.stream.Collectors;
 
-public class RetrievingFilesVisitor extends SimpleFileVisitor<Path> {
+public class SavingResultFilesVisitor extends SavingResultVisitor {
     private Set<Document> documents =
             Collections.synchronizedSet(new TreeSet<>(Comparator.comparing(Document::getFilePath)));
 
 
     private List<ExclusionStrategy> strategies;
 
-    public RetrievingFilesVisitor(List<ExclusionStrategy> strategies) {
+    public SavingResultFilesVisitor(List<ExclusionStrategy> strategies) {
         this.strategies = strategies;
     }
 
