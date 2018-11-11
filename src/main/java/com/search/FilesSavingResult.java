@@ -9,9 +9,10 @@ import java.nio.file.Paths;
 import java.util.Set;
 
 public class FilesSavingResult {
+    public static final String RESULT_FILE = "tmp/result.txt";
 
     public void saveResult(Set<Document> documents) {
-        Path logFile = Paths.get("tmp/result.txt");
+        Path logFile = Paths.get(RESULT_FILE);
         try (BufferedWriter writer = Files.newBufferedWriter(logFile, StandardCharsets.UTF_8)) {
             for (Document document : documents) {
                 writer.write(document.toString());

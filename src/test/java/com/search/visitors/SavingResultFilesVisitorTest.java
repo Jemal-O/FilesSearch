@@ -22,17 +22,16 @@ public class SavingResultFilesVisitorTest {
 
     private static final String ARGS[] = new String[]{PATH, EXCLUSIONS};
 
-    SavingResultVisitor visitor;
-    VisitorCreator creator;
+    private SavingResultVisitor visitor;
 
     @Before
     public void setUp() throws Exception {
-        creator = new SavingResultFilesVisitorCreator();
+        VisitorCreator creator = new SavingResultFilesVisitorCreator();
+        visitor = creator.getVisitor(ARGS);
     }
 
     @Test
     public void return_ContinueAndNoFilesAddedIfItIsDirectory() throws Exception {
-        visitor = creator.getVisitor(ARGS);
         FileVisitResult result = visitor.visitFile(Paths.get(PATH), Mockito.mock(BasicFileAttributes.class, Mockito.CALLS_REAL_METHODS));
         Assert.assertEquals(FileVisitResult.CONTINUE, result);
         Assert.assertEquals(new TreeSet<Document>(), visitor.getResultDocuments());
@@ -40,7 +39,6 @@ public class SavingResultFilesVisitorTest {
 
     @Test
     public void return_ContinueAndFileAddedIfItIsRegularFile() throws Exception {
-        visitor = creator.getVisitor(ARGS);
         FileVisitResult result = visitor.visitFile(Paths.get(PATH + "\\SavingResultFilesVisitor.java"),
                 Mockito.mock(BasicFileAttributes.class, Mockito.CALLS_REAL_METHODS));
         Assert.assertEquals(FileVisitResult.CONTINUE, result);
@@ -56,7 +54,6 @@ public class SavingResultFilesVisitorTest {
 
     @Test
     public void return_SkipSubTreeIfFolderInListOfExclusions() throws Exception {
-        visitor = creator.getVisitor(ARGS);
         FileVisitResult result = visitor.preVisitDirectory(Paths.get(EXCLUSIONS_DIRECTORY), Mockito.mock(BasicFileAttributes.class, Mockito.CALLS_REAL_METHODS));
         Assert.assertEquals(FileVisitResult.SKIP_SUBTREE, result);
     }

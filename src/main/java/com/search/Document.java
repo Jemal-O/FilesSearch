@@ -43,7 +43,7 @@ public class Document {
     @Override
     public String toString() {
         return "[" + "\n" +
-                "filePath='" + filePath + "\n" +
+                "file=" + filePath + "\n" +
                 "date=" + date + "\n" +
                 "size=" + size + ']';
     }

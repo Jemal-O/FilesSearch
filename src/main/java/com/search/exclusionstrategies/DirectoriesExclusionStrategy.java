@@ -20,11 +20,6 @@ public class DirectoriesExclusionStrategy implements ExclusionStrategy {
 
     @Override
     public boolean exclude(String file) {
-        for (String exclusion : exclusions) {
-            if (file.startsWith(exclusion)) {
-                return true;
-            }
-        }
-        return false;
+        return exclusions.contains(file);
     }
 }
