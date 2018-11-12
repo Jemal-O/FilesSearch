@@ -1,4 +1,4 @@
-To work with a programm you need to follow the next sequence:
+To work with a programm you need to follow the next instruction:
 1) change pathes in build.gradle
 
     1.1 first path is a searching directory and it's mandatory
