@@ -15,22 +15,14 @@ repositories {
 }
 
 dependencies {
-    testCompile group: 'junit', name: 'junit', version: '4.11'
-}
-
-sourceSets {
-    main {
-        java {
-            srcDirs = ['src/main/java']
-        }
-    }
+    testCompile group: 'junit', name: 'junit', version: '4.11', 'org.mockito:mockito-core:1.+'
 }
 
 task run(type: JavaExec) {
-    main = "Configuration"
+    main = "com.search.Configuration"
     classpath = sourceSets.main.runtimeClasspath
 }
 
 run {
-    args = ["C:\\Users\\АСУС\\Downloads\\", "-C:\\Users\\АСУС\\Downloads\\Delphi7"]
+    args = ["D:\\1_projects\\", "-D:\\1_projects\\filesSearch\\src\\main\\java\\com\\search\\visitors\\creators"]
 }

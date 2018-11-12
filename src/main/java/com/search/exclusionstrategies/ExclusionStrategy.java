@@ -1,4 +1,4 @@
-package exclusionstrategies;
+package com.search.exclusionstrategies;
 
 public interface ExclusionStrategy {
 

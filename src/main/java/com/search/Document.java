@@ -1,4 +1,5 @@
-import java.text.SimpleDateFormat;
+package com.search;
+
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
@@ -8,8 +9,6 @@ public class Document {
     private String filePath;
     private LocalDate date;
     private long size;
-    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm:ss");
-
 
     public Document(String file, long dateInLong, long size) {
         this.filePath = file;
@@ -43,11 +42,10 @@ public class Document {
 
     @Override
     public String toString() {
-        return "Document{" +
-                "filePath='" + filePath + '\'' +
-                ", date=" + date +
-                ", size=" + size +
-                '}';
+        return "[" + "\n" +
+                "file=" + filePath + "\n" +
+                "date=" + date + "\n" +
+                "size=" + size + ']';
     }
 
     @Override
