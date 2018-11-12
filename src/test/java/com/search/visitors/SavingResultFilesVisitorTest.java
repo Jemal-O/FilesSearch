@@ -3,15 +3,14 @@ package com.search.visitors;
 import com.search.Document;
 import com.search.visitors.creators.SavingResultFilesVisitorCreator;
 import com.search.visitors.creators.VisitorCreator;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-import org.mockito.Mockito;
-
 import java.nio.file.FileVisitResult;
 import java.nio.file.Paths;
 import java.nio.file.attribute.BasicFileAttributes;
 import java.util.TreeSet;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.Mockito;
 
 public class SavingResultFilesVisitorTest {
 
@@ -25,7 +24,7 @@ public class SavingResultFilesVisitorTest {
     private SavingResultVisitor visitor;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         VisitorCreator creator = new SavingResultFilesVisitorCreator();
         visitor = creator.getVisitor(ARGS);
     }

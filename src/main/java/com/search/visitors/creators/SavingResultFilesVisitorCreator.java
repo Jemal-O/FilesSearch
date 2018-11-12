@@ -4,7 +4,6 @@ import com.search.exclusionstrategies.DirectoriesExclusionStrategy;
 import com.search.exclusionstrategies.ExclusionStrategy;
 import com.search.visitors.SavingResultFilesVisitor;
 import com.search.visitors.SavingResultVisitor;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;

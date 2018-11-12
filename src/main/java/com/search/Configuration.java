@@ -4,10 +4,14 @@ import com.search.jobs.FileTreeWalkingJob;
 import com.search.visitors.SavingResultVisitor;
 import com.search.visitors.creators.SavingResultFilesVisitorCreator;
 import com.search.visitors.creators.VisitorCreator;
-
 import java.nio.file.Paths;
 import java.util.Set;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class Configuration {
 
@@ -16,10 +20,17 @@ public class Configuration {
     private static final ScheduledExecutorService PIPE_DRAW_SERVICE = Executors.newScheduledThreadPool(1);
 
     public static void main(String... args) {
+        if (isArgsEmpty(args)) {
+            return;
+        }
         VisitorCreator creator = new SavingResultFilesVisitorCreator();
         SavingResultVisitor visitor = creator.getVisitor(args);
         runTasks(args, visitor);
         saveFoundFilesTask(visitor.getResultDocuments());
+    }
+
+    private static boolean isArgsEmpty(String[] args) {
+        return args == null || args.length == 0;
     }
 
     private static void runTasks(String[] myArgs, SavingResultVisitor visitor) {

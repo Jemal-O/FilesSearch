@@ -3,14 +3,13 @@ package com.search.jobs;
 import com.search.visitors.SavingResultVisitor;
 import com.search.visitors.creators.SavingResultFilesVisitorCreator;
 import com.search.visitors.creators.VisitorCreator;
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
-
 import java.nio.file.Paths;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class FileTreeWalkingJobTest {
 
@@ -24,7 +23,7 @@ public class FileTreeWalkingJobTest {
     private VisitorCreator creator;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         creator = new SavingResultFilesVisitorCreator();
     }
 

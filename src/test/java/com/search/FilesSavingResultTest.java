@@ -1,8 +1,6 @@
 package com.search;
 
-import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
+import static com.search.FilesSavingResult.RESULT_FILE;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -11,19 +9,21 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.Set;
-
-import static com.search.FilesSavingResult.RESULT_FILE;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 public class FilesSavingResultTest {
-    FilesSavingResult result;
+
+    private FilesSavingResult result;
 
     @Before
-    public void setUp() throws Exception {
+    public void setUp() {
         result = new FilesSavingResult();
     }
 
     @Test
-    public void saveResult() throws Exception {
+    public void saveResult() {
         result.saveResult(prepareDocuments());
         Assert.assertEquals(prepareDocuments().toString(), "[" + readResult() + "]");
     }

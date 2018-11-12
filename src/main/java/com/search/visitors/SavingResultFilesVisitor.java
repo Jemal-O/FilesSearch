@@ -2,12 +2,15 @@ package com.search.visitors;
 
 import com.search.Document;
 import com.search.exclusionstrategies.ExclusionStrategy;
-
 import java.io.File;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Path;
 import java.nio.file.attribute.BasicFileAttributes;
-import java.util.*;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class SavingResultFilesVisitor extends SavingResultVisitor {
 
