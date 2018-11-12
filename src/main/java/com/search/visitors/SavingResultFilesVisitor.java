@@ -10,9 +10,12 @@ import java.nio.file.attribute.BasicFileAttributes;
 import java.util.*;
 
 public class SavingResultFilesVisitor extends SavingResultVisitor {
+
+    //Выбран TreeSet потому что в данном случае у нас должна быть отсортировання коллекция,
+    //TreeSet один из наиболее удобных вариантов.
+    // При этом, у нас не мб два полностью идентичных пути, поэтому TreeSet в данном случае подходит
     private Set<Document> documents =
             Collections.synchronizedSet(new TreeSet<>(Comparator.comparing(Document::getFilePath)));
-
 
     private List<ExclusionStrategy> strategies;
 

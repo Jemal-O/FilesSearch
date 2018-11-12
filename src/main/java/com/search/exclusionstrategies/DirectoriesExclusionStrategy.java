@@ -8,6 +8,8 @@ import java.util.regex.Pattern;
 public class DirectoriesExclusionStrategy implements ExclusionStrategy {
 
     private static final Pattern PATTERN = Pattern.compile("((\\\\\\\\)|([A-Z]:))([a-z]|[A-Z]|\\\\|[0-9]|\\s|\\.|_)+");
+    //Вставка O(1), contains O(n). Такие же показатели и у LinkedList.
+    // Всё же ArrayList более легковесный.
     private final List<String> exclusions = new ArrayList<>();
 
     @Override
