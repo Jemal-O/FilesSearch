@@ -50,27 +50,27 @@ public class FileTreeWalkingJobTest {
 
     private String getResultWithoutExclusions() {
         return "[[\n" +
-                "file=D:\\1_projects\\filesSearch\\src\\main\\java\\com\\search\\visitors\\SavingResultFilesVisitor.java\n" +
-                "date=2018-11-11\n" +
-                "size=1440], [\n" +
-                "file=D:\\1_projects\\filesSearch\\src\\main\\java\\com\\search\\visitors\\SavingResultVisitor.java\n" +
-                "date=2018-11-11\n" +
+                "file=" + System.getProperty("user.dir") + "\\src\\main\\java\\com\\search\\visitors\\SavingResultFilesVisitor.java\n" +
+                "date=2018-11-12\n" +
+                "size=1962], [\n" +
+                "file=" + System.getProperty("user.dir") + "\\src\\main\\java\\com\\search\\visitors\\SavingResultVisitor.java\n" +
+                "date=2018-11-12\n" +
                 "size=296]]";
     }
 
     private String getWholeResult() {
         return "[[\n" +
-                "file=D:\\1_projects\\filesSearch\\src\\main\\java\\com\\search\\visitors\\SavingResultFilesVisitor.java\n" +
-                "date=2018-11-11\n" +
-                "size=1440], [\n" +
-                "file=D:\\1_projects\\filesSearch\\src\\main\\java\\com\\search\\visitors\\SavingResultVisitor.java\n" +
-                "date=2018-11-11\n" +
+                "file=" + System.getProperty("user.dir") + "\\src\\main\\java\\com\\search\\visitors\\SavingResultFilesVisitor.java\n" +
+                "date=2018-11-12\n" +
+                "size=1962], [\n" +
+                "file=" + System.getProperty("user.dir") + "\\src\\main\\java\\com\\search\\visitors\\SavingResultVisitor.java\n" +
+                "date=2018-11-12\n" +
                 "size=296], [\n" +
-                "file=D:\\1_projects\\filesSearch\\src\\main\\java\\com\\search\\visitors\\creators\\SavingResultFilesVisitorCreator.java\n" +
-                "date=2018-11-11\n" +
-                "size=1508], [\n" +
-                "file=D:\\1_projects\\filesSearch\\src\\main\\java\\com\\search\\visitors\\creators\\VisitorCreator.java\n" +
-                "date=2018-11-11\n" +
+                "file=" + System.getProperty("user.dir") + "\\src\\main\\java\\com\\search\\visitors\\creators\\SavingResultFilesVisitorCreator.java\n" +
+                "date=2018-11-12\n" +
+                "size=1506], [\n" +
+                "file=" + System.getProperty("user.dir") + "\\src\\main\\java\\com\\search\\visitors\\creators\\VisitorCreator.java\n" +
+                "date=2018-11-12\n" +
                 "size=185]]";
     }
 }

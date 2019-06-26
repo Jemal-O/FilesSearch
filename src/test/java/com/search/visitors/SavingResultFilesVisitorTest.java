@@ -46,9 +46,9 @@ public class SavingResultFilesVisitorTest {
 
     private String getExpected() {
         return "[[\n" +
-                "file=D:\\1_projects\\filesSearch\\src\\main\\java\\com\\search\\visitors\\SavingResultFilesVisitor.java\n" +
-                "date=2018-11-11\n" +
-                "size=1440]]";
+                "file=" + System.getProperty("user.dir") + "\\src\\main\\java\\com\\search\\visitors\\SavingResultFilesVisitor.java\n" +
+                "date=2018-11-12\n" +
+                "size=1962]]";
     }
 
     @Test
